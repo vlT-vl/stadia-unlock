@@ -1,0 +1,262 @@
+/* howitworks.css */
+/*****************************************************************************/
+
+.HowItWorksArea {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;
+  margin-top: 72px;
+}
+
+@media screen and (min-width: 960px) {
+  .HowItWorksArea { margin-top: 96px; }
+}
+
+@media screen and (min-width: 1280px) {
+  .HowItWorksArea { margin-top: 108px; }
+}
+
+.HowItWorksHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.HowItWorksTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  color: #e3e3e3;
+  margin: 0;
+}
+
+@media screen and (min-width: 960px) {
+  .HowItWorksTitle { font-size: 36px; line-height: 44px; }
+}
+
+.HowItWorksSubtitle {
+  max-width: 640px;
+  margin: 0;
+  font-family: 'Google Sans Text', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #c4c7c5;
+}
+
+@media screen and (min-width: 1440px) {
+  .HowItWorksSubtitle { font-size: 16px; line-height: 24px; }
+}
+
+.FlowSteps {
+  list-style: none;
+  margin: 0;
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(30, 30, 32, 0.7);
+  border: 1px solid rgba(68, 71, 70, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px);
+}
+
+.FlowStep {
+  position: relative;
+  padding-bottom: 28px;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i) * 110ms);
+}
+
+.FlowStep:last-child { padding-bottom: 0; }
+
+.FlowSteps.is-visible .FlowStep {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.FlowStepButton {
+  appearance: none;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 16px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.FlowStepButton:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.FlowStepNode {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #7fcfff;
+  color: #035;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.FlowStepIcon { font-size: 26px; }
+
+.FlowStepNumber {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #0e0e0f;
+  border: 1px solid #ff773d;
+  color: #ff773d;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.FlowStepButton:hover .FlowStepNode {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 6px rgba(127, 207, 255, 0.16);
+}
+
+.FlowStepText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 6px;
+}
+
+.FlowStepTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #e3e3e3;
+}
+
+.FlowStepSummary {
+  font-family: 'Google Sans Text', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #c4c7c5;
+}
+
+.FlowStep:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 64px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #f8491b, #dc1860);
+  opacity: 0.7;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.5s ease;
+  transition-delay: calc(var(--i) * 110ms + 250ms);
+}
+
+.FlowStep:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  bottom: 2px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #dc1860;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transition-delay: calc(var(--i) * 110ms + 650ms);
+}
+
+.FlowSteps.is-visible .FlowStep:not(:last-child)::after { transform: scaleY(1); }
+.FlowSteps.is-visible .FlowStep:not(:last-child)::before { opacity: 0.9; }
+
+.HowItWorksActions {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 960px) {
+  .FlowSteps {
+    flex-direction: row;
+    padding: 36px 20px 32px;
+  }
+
+  .FlowStep {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 8px;
+  }
+
+  .FlowStepButton {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .FlowStepText { padding-top: 0; align-items: center; }
+  .FlowStepTitle { font-size: 18px; line-height: 24px; }
+
+  .FlowStep:not(:last-child)::after {
+    left: calc(50% + 40px);
+    right: calc(-50% + 40px);
+    top: 27px;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, #f8491b, #dc1860);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  .FlowStep:not(:last-child)::before {
+    left: auto;
+    right: calc(-50% + 34px);
+    top: 22px;
+    bottom: auto;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 8px solid #dc1860;
+    border-right: 0;
+  }
+
+  .FlowSteps.is-visible .FlowStep:not(:last-child)::after { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .FlowStep,
+  .FlowStep::before,
+  .FlowStep::after,
+  .FlowStepNode {
+    transition: none;
+    transition-delay: 0s;
+  }
+
+  .FlowStep { opacity: 1; transform: none; }
+  .FlowStep:not(:last-child)::after { transform: none; }
+  .FlowStep:not(:last-child)::before { opacity: 0.9; }
+  .FlowStepButton:hover .FlowStepNode { transform: none; }
+}

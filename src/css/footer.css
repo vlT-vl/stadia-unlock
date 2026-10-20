@@ -1,0 +1,90 @@
+/* footer.css */
+/*****************************************************************************/
+
+.Footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 32px 64px;
+  background: linear-gradient(180deg, rgba(14, 14, 15, 0), #0e0e0f);
+}
+
+@media screen and (min-width: 640px) {
+  .Footer {
+    height: 104px;
+  }
+}
+
+.Footer .FooterContent {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.FooterBrand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.FooterBrandDivider {
+  width: 1px;
+  height: 28px;
+  background: #444746;
+}
+
+.FooterProjectBy {
+  color: #8e918f;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.FooterVltLink {
+  min-width: 68px;
+  display: flex;
+  align-items: center;
+  color: #e3e3e3;
+  overflow: visible;
+}
+
+.FooterVltLink:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 639px) {
+  .Footer {
+    justify-content: center;
+    padding: 24px 24px 48px;
+  }
+
+  .Footer .FooterContent {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .FooterBrand { flex-direction: column; gap: 12px; }
+  .FooterBrandDivider { width: 48px; height: 1px; }
+  .FooterVltLink { min-width: 62px; justify-content: center; }
+}
+
+@media screen and (min-width: 640px) and (max-width: 959px) {
+  .Footer {
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .Footer {
+    padding: 32px 48px;
+  }
+}

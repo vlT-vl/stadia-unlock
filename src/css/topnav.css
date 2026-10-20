@@ -1,0 +1,135 @@
+/* topnav.css */
+/*****************************************************************************/
+
+.TopNav {
+  align-items: center;
+  background: rgba(31, 31, 31, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  gap: 64px;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 28px;
+  z-index: 1;
+}
+
+.TopNavLogo {
+  flex-shrink: 0;
+}
+
+.TopNav .LogoArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.TopNav .LogoArea .Divider {
+  width: 1px;
+  height: 32px;
+  background: #444746;
+}
+
+.TopNav .LogoArea .ProductName {
+  font-family: 'Google Sans', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #e3e3e3;
+  white-space: nowrap;
+}
+
+.TopNavInfoButton {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: #c4c7c5;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.TopNavInfoButton:hover {
+  background: rgba(227, 227, 227, 0.08);
+  color: #e3e3e3;
+}
+
+.TopNavActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.TopNavLanguage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  color: #c4c7c5;
+}
+
+.TopNavLanguage select {
+  appearance: none;
+  min-height: 40px;
+  padding: 8px 34px 8px 36px;
+  border: 1px solid #444746;
+  border-radius: 12px;
+  background: rgba(14, 14, 15, 0.45);
+  color: #e3e3e3;
+  font: 500 13px/18px 'Google Sans Text', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.TopNavLanguage select:hover,
+.TopNavLanguage select:focus-visible {
+  border-color: #7fcfff;
+  background: rgba(127, 207, 255, 0.08);
+  outline: none;
+}
+
+.TopNavLanguageIcon,
+.TopNavLanguageChevron {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.TopNavLanguageIcon {
+  left: 12px;
+  font-size: 17px;
+  color: #7fcfff;
+}
+
+.TopNavLanguageChevron {
+  right: 10px;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 639px) {
+  .TopNav {
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .TopNavLogo .StadiaUnlockLogoMark { width: 28px; }
+  .TopNavLogo .StadiaUnlockWordmark { font-size: 17px; }
+  .TopNav .LogoArea { gap: 10px; }
+  .TopNav .LogoArea .Divider { height: 28px; }
+  .TopNav .LogoArea .ProductName { display: none; }
+  .TopNavLanguage select { width: 44px; padding: 8px; color: transparent; }
+  .TopNavLanguageIcon { left: 13px; }
+  .TopNavLanguageChevron { display: none; }
+}

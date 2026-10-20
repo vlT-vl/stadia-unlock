@@ -1,0 +1,272 @@
+/* flasher.css */
+/* ------------------------------------------------------------------ */
+
+.fl-engine {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fl-root {
+  position: fixed;
+  inset: 0;
+  z-index: 650;
+  display: flex;
+  flex-direction: column;
+  background: #0e0e0f url('../assets/background-gradient.svg') 50% 0 / 2400px auto no-repeat;
+  color: #e3e3e3;
+  font-family: 'Google Sans Text', sans-serif;
+  overflow: hidden;
+  outline: none;
+  animation: vmoIn 0.25s ease both;
+}
+
+.fl-top {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(68, 71, 70, 0.5);
+  background: rgba(14, 14, 15, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.fl-brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.fl-divider { width: 1px; height: 22px; background: rgba(196, 199, 197, 0.35); }
+.fl-product { color: #c4c7c5; font-size: 14px; white-space: nowrap; }
+
+.fl-close {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #c4c7c5;
+  font-size: 22px;
+  cursor: pointer;
+}
+.fl-close:hover:not(:disabled) { color: #fff; background: rgba(227, 227, 227, 0.1); }
+.fl-close:disabled { opacity: 0.35; cursor: not-allowed; }
+.fl-close:focus-visible, .fl-root .Button:focus-visible, .fl-link:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+.fl-main { flex: 1 1 auto; overflow-y: auto; padding: 32px 24px 24px; }
+.fl-panel { width: min(100%, 880px); margin: 0 auto; }
+
+.fl-busy {
+  flex: none;
+  margin: 0;
+  padding: 10px 24px;
+  text-align: center;
+  color: #ffb596;
+  background: rgba(255, 119, 61, 0.12);
+  font-size: 14px;
+}
+
+.fl-bar { flex: none; border-top: 1px solid rgba(68, 71, 70, 0.5); background: rgba(14, 14, 15, 0.86); backdrop-filter: blur(10px); padding: 14px 24px; }
+.fl-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: min(100%, 880px); margin: 0 auto; }
+.fl-bar-inner > .Button { align-self: center; }
+.fl-RightButtons { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-left: auto; color: #c4c7c5; font-size: 14px; }
+
+.fl-PanelInstructions { text-align: center; margin-bottom: 28px; }
+.fl-PanelInstructions h1 { margin: 0; color: #f5f5f5; font-family: 'Google Sans', sans-serif; font-size: clamp(26px, 4vw, 38px); line-height: 1.2; font-weight: 500; }
+.fl-PanelInstructions p { margin: 12px auto 0; max-width: 620px; color: #c4c7c5; font-size: 16px; line-height: 24px; }
+
+.fl-Stepper { display: flex; justify-content: center; margin: 0 auto 28px; max-width: 560px; }
+.fl-Step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; color: #8e918f; }
+.fl-StepLabel { font-size: 13px; font-weight: 500; }
+.fl-StepTimeline { display: flex; align-items: center; width: 100%; }
+.fl-StepLeftTrack, .fl-StepRightTrack { flex: 1; height: 2px; background: rgba(142, 145, 143, 0.4); }
+.fl-Step:first-child .fl-StepLeftTrack, .fl-Step:last-child .fl-StepRightTrack { background: transparent; }
+.fl-StepDot { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; border: 2px solid rgba(142, 145, 143, 0.6); background: #0e0e0f; color: transparent; font-size: 14px; }
+.fl-Step.fl-active { color: #fff; }
+.fl-Step.fl-active .fl-StepDot { border-color: #ff8a59; background: #ff8a59; }
+.fl-Step.fl-completed .fl-StepDot { border-color: #7fcfff; background: #7fcfff; color: #0e0e0f; }
+.fl-Step.fl-completed .fl-StepLeftTrack, .fl-Step.fl-completed .fl-StepRightTrack { background: #7fcfff; }
+
+.fl-PanelContent { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.fl-StandaloneDiagram { width: min(100%, 460px); height: auto; }
+.fl-ButtonStack { display: flex; flex-direction: column; gap: 10px; width: min(100%, 360px); margin: 24px auto 0; }
+.fl-ButtonStack .Button { width: 100%; }
+.fl-PanelTopButtonRow { display: flex; justify-content: center; }
+.fl-TopButtonHelpText, .fl-DialogHelpText { color: #8e918f; font-size: 13px; text-align: center; }
+
+.fl-CardsAction { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: stretch; gap: 18px; width: 100%; }
+.fl-ActionCard, .fl-InstructionCard { display: flex; flex-direction: column; gap: 20px; padding: 26px; border-radius: 18px; background: #1e1e20; border: 1px solid rgba(68, 71, 70, 0.7); }
+.fl-ActionCard { height: 100%; box-sizing: border-box; }
+.fl-IconAndText, .fl-IconAndInstruction { display: flex; gap: 16px; align-items: flex-start; flex: 1 1 auto; }
+.fl-ActionCard .fl-Icon { flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: rgba(127, 207, 255, 0.12); color: #7fcfff; font-size: 24px; }
+.fl-ActionCard .fl-Icon .fl-symbol { width: 24px; height: 24px; }
+.fl-ActionCard .fl-Text { flex: 1; min-width: 0; text-align: left; }
+.fl-ActionText { margin: 0 0 8px; color: #f5f5f5; font-family: 'Google Sans', sans-serif; font-size: 20px; line-height: 28px; font-weight: 500; }
+.fl-MetaText { display: flex; flex-direction: column; gap: 8px; color: #c4c7c5; font-size: 14px; line-height: 21px; }
+.fl-MetaText p { margin: 0; }
+.fl-MetaText strong { color: #f5f5f5; font-weight: 500; }
+.fl-InstructionText { color: #c4c7c5; font-size: 14px; line-height: 21px; margin: 0; }
+.fl-TimeChip { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: rgba(127, 207, 255, 0.12); color: #7fcfff; font-size: 12px; line-height: 16px; }
+.fl-TimeChip .fl-symbol { width: 16px; height: 16px; }
+.fl-Bottom { margin-top: auto; display: flex; flex-direction: column; align-items: stretch; gap: 14px; }
+.fl-ActionCard .fl-Bottom .Button { width: 100%; min-height: 60px; }
+
+.fl-InstructionCards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: stretch; gap: 16px; width: 100%; }
+.fl-DiagramAndMeta { display: flex; flex-direction: column; gap: 12px; }
+.fl-Diagram img, .fl-InstructionCard img { width: 100%; height: auto; }
+
+.fl-ControllerButton { display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 6px; margin: 0 2px; border-radius: 13px; background: #2b2b2e; color: #fff; font-size: 13px; font-weight: 700; vertical-align: middle; }
+.fl-ControllerButton.fl-option { border-radius: 8px; background: #34343a; }
+.fl-ControllerButton.fl-assistant { background: #ff8a59; color: #0e0e0f; }
+.fl-ControllerButton.fl-btna { background: #7fcfff; color: #0e0e0f; }
+.fl-ControllerButton.fl-btny { background: #ffd35c; color: #0e0e0f; }
+
+.fl-LoadingContent { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.fl-LoadingText .fl-Major { margin: 0; color: #f5f5f5; font-family: 'Google Sans', sans-serif; font-size: 22px; }
+.fl-LoadingText .fl-Minor { margin: 6px 0 0; color: #c4c7c5; font-size: 14px; }
+.fl-Major { color: #f5f5f5; font-family: 'Google Sans', sans-serif; font-size: 18px; }
+.fl-Minor { color: #c4c7c5; font-size: 14px; }
+.fl-root progress { width: min(100%, 420px); height: 10px; appearance: none; border: 0; border-radius: 999px; overflow: hidden; background: rgba(142, 145, 143, 0.28); }
+.fl-root progress::-webkit-progress-bar { background: rgba(142, 145, 143, 0.28); }
+.fl-root progress::-webkit-progress-value { background: linear-gradient(90deg, #ff8a59, #e5466f); border-radius: 999px; transition: width 0.3s ease; }
+.fl-ProgressCircle progress { width: 72px; height: 72px; border-radius: 50%; background: transparent; animation: flSpin 1s linear infinite; border: 6px solid rgba(142, 145, 143, 0.28); border-top-color: #ff8a59; }
+.fl-ProgressCircle progress::-webkit-progress-bar, .fl-ProgressCircle progress::-webkit-progress-value { background: transparent; }
+
+.fl-DialogImageWithTipAndHelpText, .fl-DialogImageWithTip { display: flex; flex-direction: column; align-items: stretch; gap: 12px; width: 100%; }
+.fl-DialogImageWithTipAndHelpText { align-items: center; max-width: 560px; margin: 0 auto; }
+.fl-DialogImage { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid #444746; border-radius: 24px 24px 6px 6px; box-shadow: 0 15px 60px rgba(0, 0, 0, 0.2); }
+.fl-DialogTipContent { display: flex; gap: 8px; align-items: flex-start; }
+.fl-symbol { width: 1.25em; height: 1.25em; flex: none; display: inline-block; vertical-align: middle; }
+.fl-root .Button .fl-ButtonText { height: auto; }
+.fl-DialogTip { display: flex; gap: 10px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; background: #1e1e20; color: #c4c7c5; font-size: 13px; line-height: 20px; }
+.fl-DialogTipIcon { color: #ffd35c; font-size: 20px; flex: none; }
+
+.fl-link { display: inline; padding: 0; border: 0; background: none; color: #7fcfff; font: inherit; text-decoration: underline; cursor: pointer; }
+.fl-link:hover { color: #b3e0ff; }
+
+.fl-root .Button { line-height: 22px; appearance: none; border: 0; border-radius: 12px; min-height: 48px; padding: 10px 24px; font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.fl-root .Button:disabled { cursor: not-allowed; }
+.fl-root .Button .fl-ButtonText { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; font-size: 15px; line-height: 22px; position: relative; z-index: 1; }
+.fl-root .Button .fl-ButtonIcon { font-size: 22px; }
+.fl-root .Button.outlined { background: transparent; color: #7fcfff; box-shadow: inset 0 0 0 1px rgba(127, 207, 255, 0.6); }
+.fl-root .Button.outlined:hover:not(:disabled) { background: rgba(127, 207, 255, 0.1); }
+.fl-root .Button.text { background: transparent; color: #7fcfff; }
+.fl-root .Button.text:hover:not(:disabled) { background: rgba(127, 207, 255, 0.1); }
+.fl-root .Button.text:disabled, .fl-root .Button.outlined:disabled { opacity: 0.4; }
+
+.fl-root .Button.primary,
+.fl-root .Button.brand {
+  position: relative;
+  min-height: 60px;
+  padding: 14px 26px 14px 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(90deg, #f8491b, #f12f3f 51.56%, #dc1860);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(220, 24, 96, 0.28);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  animation: flCtaGlow 2.8s ease-in-out infinite;
+}
+.fl-root .Button.primary::before, .fl-root .Button.brand::before { border-radius: inherit; }
+.fl-root .Button.primary::after,
+.fl-root .Button.brand::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: -50%;
+  left: -35%;
+  width: 24%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(18deg);
+  animation: flCtaShine 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+.fl-root .Button.primary .fl-ButtonText, .fl-root .Button.brand .fl-ButtonText { gap: 12px; font-size: 17px; line-height: 26px; font-weight: 600; }
+.fl-root .Button.primary .fl-ButtonIcon, .fl-root .Button.brand .fl-ButtonIcon { font-size: 26px; animation: flCtaArrow 1.35s ease-in-out infinite; }
+.fl-root .Button.primary:not(:disabled):hover, .fl-root .Button.brand:not(:disabled):hover { animation: none; transform: translateY(-2px) scale(1.015); box-shadow: 0 14px 36px rgba(220, 24, 96, 0.4); }
+.fl-root .Button.primary:not(:disabled):active, .fl-root .Button.brand:not(:disabled):active { transform: translateY(0) scale(0.985); }
+.fl-root .Button.primary:disabled {
+  background: rgba(227, 227, 227, 0.12);
+  color: rgba(227, 227, 227, 0.38);
+  box-shadow: none;
+  animation: none;
+}
+.fl-root .Button.primary:disabled::after, .fl-root .Button.primary:disabled .fl-ButtonIcon { animation: none; opacity: 0; }
+
+.fl-ButtonStack .Button.primary { width: 100%; }
+.fl-PanelContent > .Button.primary, .fl-PanelTopButtonRow .Button.primary { min-width: min(100%, 360px); }
+
+.fl-bar .Button { min-height: 52px; }
+.fl-bar .Button.primary { min-height: 56px; padding: 12px 24px 12px 28px; }
+.fl-bar .Button.primary .fl-ButtonText { font-size: 16px; line-height: 24px; }
+
+.fl-notice, .fl-problem { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 56px 0; text-align: center; }
+.fl-notice p, .fl-problem p { margin: 0; max-width: 520px; color: #c4c7c5; font-size: 15px; line-height: 23px; }
+.fl-problem h1 { margin: 0; color: #f5f5f5; font-family: 'Google Sans', sans-serif; font-size: 28px; }
+.fl-problem-icon { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 119, 61, 0.14); color: #ff8a59; font-size: 26px; }
+.fl-problem-detail { color: #8e918f; font-size: 12px; word-break: break-word; }
+.fl-spinner { width: 34px; height: 34px; border-radius: 50%; border: 3px solid rgba(142, 145, 143, 0.3); border-top-color: #ff8a59; animation: flSpin 0.9s linear infinite; }
+
+.fl-dialog-overlay { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(0, 0, 0, 0.72); backdrop-filter: blur(8px); }
+.fl-dialog { width: min(100%, 520px); max-height: 100%; overflow-y: auto; padding: 28px; border-radius: 18px; background: #1e1e20; border: 1px solid rgba(68, 71, 70, 0.7); box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45); }
+.fl-dialog .fl-Content { display: flex; flex-direction: column; gap: 16px; }
+.fl-dialog .fl-HeadingDescriptionIcon { display: flex; flex-direction: column; gap: 10px; }
+.fl-dialog .fl-Icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 119, 61, 0.14); color: #ff8a59; font-size: 22px; }
+.fl-dialog h2 { margin: 0; color: #f5f5f5; font-family: 'Google Sans', sans-serif; font-size: 24px; line-height: 32px; }
+.fl-dialog .fl-Description { color: #c4c7c5; font-size: 15px; line-height: 23px; }
+.fl-dialog .fl-Description p { margin: 0 0 12px; }
+.fl-dialog .fl-Checkbox { display: flex; gap: 10px; align-items: center; color: #e3e3e3; font-size: 14px; }
+.fl-dialog .fl-Checkbox input { width: 18px; height: 18px; accent-color: #ff8a59; }
+.fl-dialog .fl-ButtonRow { display: flex; justify-content: flex-end; gap: 8px; margin-top: 22px; flex-wrap: wrap; }
+
+.fl-ModalHeader { display: flex; align-items: center; justify-content: space-between; color: #f5f5f5; font-family: 'Google Sans', sans-serif; font-size: 22px; margin-bottom: 14px; }
+.fl-LEDStatusList { display: flex; flex-direction: column; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+.fl-LEDStatus { display: flex; flex-direction: column; padding: 10px 14px; border-radius: 12px; background: #26262a; }
+.fl-LEDStatus__State { color: #f5f5f5; font-weight: 500; }
+.fl-LEDStatus__Description { color: #c4c7c5; font-size: 13px; }
+.fl-ModalFooter { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.fl-ModalFooter__LeftControls, .fl-ModalFooter__RightControls, .fl-ModalFooter__StepContainer { display: flex; align-items: center; gap: 8px; color: #c4c7c5; font-size: 13px; }
+
+@keyframes flSpin { to { transform: rotate(360deg); } }
+
+@keyframes flCtaGlow {
+  0%, 100% { box-shadow: 0 10px 28px rgba(220, 24, 96, 0.25); }
+  50% { box-shadow: 0 12px 36px rgba(248, 73, 27, 0.46); }
+}
+
+@keyframes flCtaShine {
+  0%, 58% { left: -35%; opacity: 0; }
+  65% { opacity: 1; }
+  88%, 100% { left: 112%; opacity: 0; }
+}
+
+@keyframes flCtaArrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+@media (max-width: 640px) {
+  .fl-top { padding: 12px 16px; }
+  .fl-product { display: none; }
+  .fl-divider { display: none; }
+  .fl-main { padding: 24px 16px 16px; }
+  .fl-bar { padding: 12px 16px; }
+  .fl-bar-inner { flex-direction: column-reverse; align-items: stretch; gap: 8px; }
+  .fl-RightButtons { width: 100%; margin-left: 0; flex-direction: column; align-items: stretch; }
+  .fl-bar .Button { width: 100%; }
+  .fl-dialog { padding: 22px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fl-root, .fl-spinner, .fl-ProgressCircle progress, .fl-root .Button.primary, .fl-root .Button.primary::after, .fl-root .Button.primary .fl-ButtonIcon { animation: none; }
+  .fl-root .Button.primary { transition: none; }
+  .fl-root .Button.primary:not(:disabled):hover, .fl-root .Button.primary:not(:disabled):active { transform: none; }
+  .fl-root progress::-webkit-progress-value { transition: none; }
+}

@@ -1,0 +1,244 @@
+/* versionmodal.css */
+/*****************************************************************************/
+
+.vmo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: vmoIn 0.22s ease both;
+}
+
+.vmo-card {
+  background: #1e1e20;
+  border: 1px solid rgba(68, 71, 70, 0.5);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 88vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  animation: vmoCardIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.vmo-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem 1.25rem;
+  border-bottom: 1px solid rgba(68, 71, 70, 0.5);
+  background: rgba(14, 14, 15, 0.4);
+  border-radius: 16px 16px 0 0;
+}
+
+.vmo-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.vmo-header-icon {
+  font-size: 1.2rem;
+  color: #7fcfff;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.vmo-eyebrow {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #7fcfff;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.vmo-subtitle {
+  display: block;
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: #8e918f;
+  letter-spacing: 0.2px;
+}
+
+.vmo-close {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid #444746;
+  border-radius: 4px;
+  color: #c4c7c5;
+  font-size: 1.05rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.vmo-close:hover {
+  color: #fff;
+  border-color: #8e918f;
+  background: rgba(227, 227, 227, 0.08);
+}
+
+.vmo-card :focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.vmo-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.vmo-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.vmo-logo-wrap .StadiaUnlockLogoMark {
+  width: 68px;
+}
+
+.vmo-vlt-link {
+  align-self: center;
+  display: inline-flex;
+  color: inherit;
+  text-decoration: none;
+  margin: -1.05rem 0;
+}
+
+.vmo-license-button {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid rgba(127, 207, 255, 0.45);
+  border-radius: 9px;
+  background: rgba(127, 207, 255, 0.06);
+  color: #7fcfff;
+  font: 500 13px/18px 'Google Sans Text', sans-serif;
+  cursor: pointer;
+}
+
+.vmo-license-button:hover { background: rgba(127, 207, 255, 0.14); }
+.vmo-license-button svg { font-size: 18px; }
+
+.vmo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.vmo-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem 0.8rem;
+  background: rgba(14, 14, 15, 0.4);
+  border: 1px solid rgba(68, 71, 70, 0.5);
+  border-radius: 6px;
+}
+
+.vmo-field-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #8e918f;
+}
+
+.vmo-field-value {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #e3e3e3;
+  word-break: break-word;
+}
+
+.vmo-notice {
+  font-size: 0.68rem;
+  color: #8e918f;
+  line-height: 1.7;
+  text-align: center;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(68, 71, 70, 0.5);
+  margin: 0;
+}
+
+.vmo-notice--copy {
+  padding-top: 0;
+  border-top: none;
+}
+
+@keyframes vmoIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vmoCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vmo-overlay,
+  .vmo-card {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .vmo-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .vmo-field {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .vmo-field-label {
+    flex-shrink: 0;
+  }
+
+  .vmo-field-value {
+    text-align: right;
+  }
+
+  .vmo-header,
+  .vmo-body {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
+}

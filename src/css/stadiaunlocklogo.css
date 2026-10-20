@@ -1,0 +1,93 @@
+.StadiaUnlockLogo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.StadiaUnlockLogo--stacked {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.StadiaUnlockLogo--inline {
+  flex-direction: row;
+  gap: 10px;
+}
+
+.StadiaUnlockLogoMark {
+  display: block;
+  flex: 0 0 auto;
+  height: auto;
+  padding: 2px;
+  overflow: visible;
+  animation: stadiaUnlockMarkIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.StadiaUnlockWordmark {
+  display: inline-flex;
+  align-items: baseline;
+  overflow: visible;
+  padding: 0.14em 0.08em 0.2em;
+  font-family: 'Google Sans', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.StadiaUnlockWordmark > span {
+  display: inline-block;
+  overflow: visible;
+  animation: stadiaUnlockWordIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.StadiaUnlockWordmarkStadia {
+  padding-left: 0.04em;
+  background: linear-gradient(90deg, #ff6a38, #f13f54 72%, #dc1860);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation-delay: 0.12s !important;
+}
+
+.StadiaUnlockWordmarkUnlock {
+  padding-right: 0.04em;
+  color: #f5f5f5;
+  animation-delay: 0.22s !important;
+}
+
+.StadiaUnlockLogo--large .StadiaUnlockLogoMark { width: 72px; }
+.StadiaUnlockLogo--large .StadiaUnlockWordmark { font-size: clamp(30px, 3.2vw, 42px); }
+.StadiaUnlockLogo--medium .StadiaUnlockLogoMark { width: 54px; }
+.StadiaUnlockLogo--medium .StadiaUnlockWordmark { font-size: 28px; }
+.StadiaUnlockLogo--compact .StadiaUnlockLogoMark { width: 34px; }
+.StadiaUnlockLogo--compact .StadiaUnlockWordmark { font-size: 21px; }
+
+.StadiaUnlockLogo:hover .StadiaUnlockLogoMark {
+  transform: translateY(-2px) rotate(-2deg);
+  transition: transform 0.25s ease;
+}
+
+@keyframes stadiaUnlockMarkIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes stadiaUnlockWordIn {
+  from { opacity: 0; transform: translateY(8px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .StadiaUnlockLogoMark,
+  .StadiaUnlockWordmark > span {
+    animation: none;
+    transition: none;
+  }
+
+  .StadiaUnlockLogo:hover .StadiaUnlockLogoMark { transform: none; }
+}

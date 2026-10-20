@@ -1,0 +1,26 @@
+{
+  "name": "stadiaunlock",
+  "version": "0.1.0",
+  "build": "R201026",
+  "updated": "20 October 2026",
+  "ibuild": "R201026",
+  "description": "StadiaUnlock keeps the Stadia Controller Bluetooth-mode unlock tool alive, with a planned React rewrite for cross-browser support",
+  "author": "Veronesi Lorenzo © 2026 vlT - vl.TECH",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check:i18n": "node scripts/check-translations.mjs"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-icons": "^5.7.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
+  }
+}

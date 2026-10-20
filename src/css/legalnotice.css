@@ -1,0 +1,24 @@
+/* legalnotice.css */
+/*****************************************************************************/
+
+.LegalArea {
+  font-family: 'Google Sans Text', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  color: #8e918f;
+}
+
+@media screen and (min-width: 960px) {
+  .LegalArea {
+    margin-top: 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .LegalArea {
+    margin-top: 36px;
+  }
+}

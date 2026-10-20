@@ -1,0 +1,23 @@
+# Internal-only docs (not for public repo)
+handoff.md
+DESCRIZIONE.md
+
+# Original Google mirror (not redistributed)
+/original/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Build output and local env
+node_modules/
+dist/
+dist-ssr/
+.env
+.env.local
+.env.*.local
+*.local

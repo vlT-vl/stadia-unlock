@@ -1,0 +1,132 @@
+/* faq.css */
+/*****************************************************************************/
+
+.FaqArea {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 48px;
+  margin-top: 72px;
+}
+
+@media screen and (min-width: 960px) {
+  .FaqArea {
+    margin-top: 96px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .FaqArea {
+    margin-top: 108px;
+  }
+}
+
+.FaqArea .FaqAreaTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #e3e3e3;
+  margin: 0;
+}
+
+@media screen and (min-width: 960px) {
+  .FaqArea .FaqAreaTitle {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+.FaqArea .FaqItemList {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 8px 32px;
+  backdrop-filter: blur(25px);
+  background: rgba(30, 30, 32, 0.7);
+  border: 1px solid rgba(68, 71, 70, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.FaqItem {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px 0;
+}
+
+.FaqItem + .FaqItem {
+  border-top: 1px solid #28282c;
+}
+
+.FaqItem .FaqQuestionHeader {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  color: inherit;
+}
+
+.FaqItem .FaqQuestionHeader .FaqQuestion {
+  font-family: 'Google Sans Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  color: #e3e3e3;
+}
+
+.FaqItem .FaqQuestionHeader .FaqChevron {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff773d;
+}
+
+.FaqItem .FaqAnswer {
+  font-family: 'Google Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #c4c7c5;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.FaqItem .FaqAnswer p {
+  margin: 8px 0 0;
+}
+
+.FaqInlineAction {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #7fcfff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.FaqInlineAction:hover {
+  text-decoration: underline;
+}
